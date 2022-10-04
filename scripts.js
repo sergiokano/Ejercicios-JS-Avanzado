@@ -31,45 +31,32 @@ console.log(actualDomain);
 const imageNodes = document.querySelectorAll('img');
 console.log(imageNodes);
 
+
 // Sustituye el atributo "src" de todas las imágenes por este "https://media.giphy.com/media/2v170e71aanfi/giphy.gif"
 
 
-
-function replaceSrc()
-{
-
-    var images = document.getElementsByTagName('img');
-
-    for(var i = 0; i < images.length; i++)
-    {
-        var img = images[i]
-        if(img.src.length = !0) 
-        {
-            img.src = 'https://media.giphy.com/media/2v170e71aanfi/giphy.gif';
-        }
-        
-    }
-}
+ for (const img of imageNodes) {
+     img.src = 'https://media.giphy.com/media/2v170e71aanfi/giphy.gif';}
    
-
-replaceSrc()
 
 
 // Cambia el fondo de todos los infocard-lg-data text-muted para todos los Pokimon voladores itype flying
-const flyingPokimon = document.querySelector('.infocard-lg-data');
-console.log(flyingPokimon);
 
-// function repBgFlyingPok()
-// {
 
-//     for(var i = 0; i < flyingPokimon.length; i++)
-//     {
-//         var flyPok = flyingPokimon[i];
-//         if(flyPok.class = "itype flying") 
-//         {
-//             flyPok.style.background = 'blue';
-//         }
-        
-//     }
+// SOLUCIÓN DE ALEX
+// let pokimon_voladores = document.getElementsByClassName('itype flying');
+// for (const pokemon of pokimon_voladores) {
+//     pokemon.parentElement.parentElement.style.background = 'pink';
 // }
-   
+
+// SOLUCIÓN DE SOFÍA, AQUÍ COMPRUEBA QUE CONTIENE LAS DOS CLASES PORQUE NO SE PUEDE ACCEDER A TODO EL CONJUNTO
+let voladores = document.getElementsByClassName("itype flying");
+for (const volador of voladores) {
+  const elementoPadre = volador.parentElement.parentElement;
+  if (
+    elementoPadre.classList[0] === "infocard-lg-data" &&
+    elementoPadre.classList[1] === "text-muted"
+  ) {
+    elementoPadre.style.backgroundColor = "green";
+  }
+}
